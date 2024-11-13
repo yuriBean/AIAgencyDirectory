@@ -1,0 +1,21 @@
+.App {
+  margin: 0 10%;
+
+}
+
+
+/* styles.css */
+.article-content a {
+  color: blue; /* Link color */
+  text-decoration: underline; /* Underline links */
+}
+
+.article-content h2,h3,h4 {
+  font-size: 3rem; /* Heading size */
+  margin: 1rem 0; /* Margin for headings */
+}
+
+.article-content p {
+  font-size: 1rem; /* Paragraph size */
+  line-height: 1.5; /* Line height for readability */
+}
