@@ -19,7 +19,7 @@ const Footer = () => {
           <img src="/logo2.png" alt="Logo" className="mb-6" />
           </a>
           <p className="text-white text-center md:text-left w-80">
-          Our consultation service is completely free and designed to save you time and effort. Fill out the form above, and one of our AI matchmaking experts will get in touch with you shortly to discuss your needs and connect you with the right agency.
+          Our consultation service is completely free and designed to save you time and effort. Fill out the form above, and one of our AI matchmaking experts will get in touch.
 
           </p>
         </div>
@@ -50,7 +50,7 @@ const Footer = () => {
           <h4 className="text-2xl font-bold">Contact Details</h4>
           <ul className="space-y-4">
             <li className='font-bold'>Telephone: <a href="tel:+1234567890" className="font-normal hover:underline">+1 234 567 890</a></li>
-            <li className='font-bold'>Email: <a href="mailto:info@yourcompany.com" className="font-normal hover:underline">info@yourcompany.com</a></li>
+            <li className='font-bold'>Email: <a href="mailto:info@yourcompany.com" className="font-normal hover:underline">aiagencydirectory@gmail.com</a></li>
             <li className='font-bold'>Address: <span className='font-normal'>1234 Street Name, City, Country</span></li>
             <li className="flex space-x-16 text-2xl">
             <a href="https://facebook.com/yourcompany" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600">

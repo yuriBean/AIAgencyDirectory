@@ -200,7 +200,7 @@ const PrivacyPolicy = () => {
 <p>If you have any questions about this Privacy Policy, You can contact us:</p>
 <ul>
 <li>
-<p>By email: office@mycompany.com</p>
+<p>By email: aiagencydirectory@gmail.com</p>
 </li>
 <li>
 <p>By phone number: 123456789</p>

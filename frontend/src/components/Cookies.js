@@ -64,7 +64,7 @@ const Cookies = () => {
 <p>If you have any questions about this Cookies Policy, You can contact us:</p>
 <ul>
 <li>
-<p>By email: office@company.com</p>
+<p>By email: aiagencydirectory@gmail.com</p>
 </li>
 <li>
 <p>By phone number: 123456789</p>

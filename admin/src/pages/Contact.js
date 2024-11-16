@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getContacts, deleteContact } from "../services/firestoreService"; // Adjust path if needed
+import { getContacts, deleteContact } from "../services/firestoreService"; 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faX } from '@fortawesome/free-solid-svg-icons';
 import PageHead from "../components/common/PageHead";
@@ -25,8 +25,8 @@ const ContactsPage = () => {
 
   const handleDelete = async (id) => {
     try {
-      await deleteContact(id); // Call the delete function
-      setContacts(contacts.filter(contact => contact.id !== id)); // Remove from UI
+      await deleteContact(id); 
+      setContacts(contacts.filter(contact => contact.id !== id)); 
     } catch (err) {
       setError("Failed to delete contact.");
     }

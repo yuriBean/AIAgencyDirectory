@@ -8,7 +8,7 @@ const TermsOfServices = () => {
       <div className='m-1 md:m-20 '>
     <p><strong>Effective Date:</strong> November 11, 2024</p>
 
-    <p>Welcome to <strong>AI Agency Directory</strong> ("we," "us," or "our"). These Terms of Service ("Terms") govern your access to and use of the AI Agency Directory website (the "Service"), including any content, functionality, and services offered on or through [Website URL] (the "Website"). By creating an account, uploading agency information, or purchasing subscription plans, you agree to abide by these Terms. Please read them carefully.</p>
+    <p>Welcome to <strong>AI Agency Directory</strong> ("we," "us," or "our"). These Terms of Service ("Terms") govern your access to and use of the AI Agency Directory website (the "Service"), including any content, functionality, and services offered on or through aiagencydirectory.com (the "Website"). By creating an account, uploading agency information, or purchasing subscription plans, you agree to abide by these Terms. Please read them carefully.</p>
 
     <h2 className='text-primary text-2xl font-bold my-3'>1. Acceptance of Terms</h2>
     <p>By accessing or using our Service, you accept and agree to these Terms and our Privacy Policy. If you do not agree to any part of these Terms, please do not use our Service.</p>
@@ -69,10 +69,10 @@ const TermsOfServices = () => {
     <p>We reserve the right to update or modify these Terms at any time. If we make significant changes, we will notify you by email or by posting a notice on our Website. Your continued use of the Service after any changes indicates your acceptance of the new Terms.</p>
 
     <h2 className='text-primary text-2xl font-bold my-3'>13. Governing Law</h2>
-    <p>These Terms and your use of the Service are governed by the laws of [Your Jurisdiction]. Any disputes arising out of or related to these Terms will be resolved in the courts of [Your Jurisdiction].</p>
+    <p>These Terms and your use of the Service are governed by the laws of United States. Any disputes arising out of or related to these Terms will be resolved in the courts of United States.</p>
 
     <h2 className='text-primary text-2xl font-bold my-3'>14. Contact Information</h2>
-    <p>If you have any questions about these Terms, please contact us at [Contact Email Address].</p>
+    <p>If you have any questions about these Terms, please contact us at aiagencydirectory@gmail.com.</p>
         
       </div>
     </div>
