@@ -101,22 +101,20 @@ const Hero = () => {
           </select>
         </div>
         <div className="px-5">
-          <h4 className="text-white my-4 text-xl text-left">Popular Searches:</h4>
-          <div className="flex flex-wrap justify-start gap-4">
-            <span className="bg-transparent text-white border border-white py-2 px-4 rounded-full cursor-pointer hover:bg-white hover:text-primary transition-colors">
-              Graphic Design
-            </span>
-            <span className="bg-transparent text-white border border-white py-2 px-4 rounded-full cursor-pointer hover:bg-white hover:text-primary transition-colors">
-              UI Design
-            </span>
-            <span className="bg-transparent text-white border border-white py-2 px-4 rounded-full cursor-pointer hover:bg-white hover:text-primary transition-colors">
-              Tech Solutions
-            </span>
-            <span className="bg-transparent text-white border border-white py-2 px-4 rounded-full cursor-pointer hover:bg-white hover:text-primary transition-colors">
-              Technology
-            </span>
-          </div>
-        </div>
+  <h4 className="text-white my-4 text-xl text-left">Popular Searches:</h4>
+  <div className="flex flex-wrap justify-start gap-4">
+    {["Graphic Design", "UI Design", "Tech Solutions", "Technology"].map((term) => (
+      <span
+        key={term}
+        className="bg-transparent text-white border border-white py-2 px-4 rounded-full cursor-pointer hover:bg-white hover:text-primary transition-colors"
+        onClick={() => navigate(`/search-results?industry=${encodeURIComponent(term)}`)}
+      >
+        {term}
+      </span>
+    ))}
+  </div>
+</div>
+
       </div>
     </section>
   );
