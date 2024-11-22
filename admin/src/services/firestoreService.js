@@ -4,19 +4,16 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 const auth = getAuth();
 
-// Fetch all agencies
 export const getAgencies = async () => {
   const snapshot = await getDocs(collection(db, 'agencies'));
   return snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 };
 
-// Approve an agency
 export const approveAgency = async (agencyId) => {
   const agencyRef = doc(db, 'agencies', agencyId);
   await updateDoc(agencyRef, { isApproved: true });
 };
 
-// Delete an agency
 export const deleteAgency = async (agencyId) => {
   const agencyRef = doc(db, 'agencies', agencyId);
   await deleteDoc(agencyRef);
@@ -66,25 +63,21 @@ export const saveUserDetails = async (userId, userData) => {
   }
 };
 
-// Fetch all users
 export const fetchUsers = async () => {
   const usersCollection = collection(db, 'users');
   const usersSnapshot = await getDocs(usersCollection);
   return usersSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 };
 
-// Delete user by ID
 export const deleteUserById = async (userId) => {
   await deleteDoc(doc(db, 'users', userId));
 };
 
-// Update user by ID
 export const updateUserById = async (userId, updatedData) => {
   const userRef = doc(db, 'users', userId);
   await updateDoc(userRef, updatedData);
 };
 
-// Add new article
 export const addArticle = async (articleData) => {
   const articlesCollection = collection(db, 'articles');
   await addDoc(articlesCollection, articleData);
@@ -102,40 +95,34 @@ export const deleteArticle = async (articleId) => {
   await deleteDoc(articleDoc);
 };
 
-// Fetch a single article by ID
 export const getArticle = async (articleId) => {
   const articleDoc = await getDoc(doc(db, 'articles', articleId));
   return { id: articleDoc.id, ...articleDoc.data() };
 };
 
-// Update an existing article
 export const updateArticle = async (articleId, articleData) => {
   const articleRef = doc(db, 'articles', articleId);
   await updateDoc(articleRef, articleData);
 };
 
-// Fetch notifications from Firestore
 export const fetchNotifications = async () => {
   const notificationsCollection = collection(db, 'notifications');
   const notificationDocs = await getDocs(notificationsCollection);
   return notificationDocs.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 };
 
-// Clear a specific notification
 export const clearNotification = async (notificationId) => {
   const notificationRef = doc(db, 'notifications', notificationId);
   await deleteDoc(notificationRef);
 };
 
-// Add a new notification
 export const addNotification = async (message) => {
   await addDoc(collection(db, 'notifications'), {
     message,
-    timestamp: new Date(), // Optionally add a timestamp
+    timestamp: new Date(), 
   });
 };
 
-// Fetch new agencies (if you're keeping them in Firestore)
 export const fetchNewAgencies = async () => {
   const agenciesCollection = collection(db, 'agencies');
   const agencyDocs = await getDocs(agenciesCollection);
@@ -157,6 +144,24 @@ export const deleteContact = async (contactId) => {
     await deleteDoc(contactRef);
   } catch (error) {
     throw new Error('Failed to delete contact:', error);
+  }
+};
+
+export const getConsultations = async () => {
+  try {
+    const snapshot = await getDocs(collection(db, 'consultations'));
+    return snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+  } catch (error) {
+    throw new Error('Failed to fetch consultations:', error);
+  }
+};
+
+export const deleteConsultations = async (consultationId) => {
+  try {
+    const consultationRef = doc(db, 'consultations', consultationId);
+    await deleteDoc(consultationRef);
+  } catch (error) {
+    throw new Error('Failed to delete consultations:', error);
   }
 };
 

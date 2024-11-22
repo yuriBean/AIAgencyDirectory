@@ -16,6 +16,7 @@ import EditArticle from './pages/Articles/EditArticle';
 import Dashboard from './pages/Dashboard';
 import ContactsPage from './pages/Contact';
 import Newsletters from './pages/Newsletters';
+import Consultations from './pages/Consultations';
 
 function App() {
   const { user } = useAuth();
@@ -44,8 +45,9 @@ function App() {
                     <Route path="/view-articles" element={<ViewArticles />} />
                     <Route path="/edit-article/:articleId" element={<EditArticle />} />
                     <Route path="/dashboard" element={<Dashboard />} />
-                    <Route path="/contacts" element={<ContactsPage   />} />
-                    <Route path="/newsletters" element={<Newsletters   />} />
+                    <Route path="/contacts" element={<ContactsPage />} />
+                    <Route path="/newsletters" element={<Newsletters />} />
+                    <Route path="/consultations" element={<Consultations />} />
                   </Routes>
                 </div>
               </ProtectedRoute>

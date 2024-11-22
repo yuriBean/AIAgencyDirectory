@@ -118,6 +118,11 @@ const Sidebar = () => {
                                 Newsletters
                             </a>
                         </li>
+                        <li>
+                            <a href="/consultations" className="block py-2 px-4 rounded hover:bg-[#338ca0] transition duration-300">
+                                Consultations
+                            </a>
+                        </li>
                     </ul>
                 </nav>
 
