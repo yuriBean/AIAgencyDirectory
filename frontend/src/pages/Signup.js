@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { signup } from '../services/authService';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Signup = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [username, setUsername] = useState('');
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const handleSignup = async (e) => {
     e.preventDefault();
@@ -17,12 +19,23 @@ const Signup = () => {
       isSubscribed: false,
     };
     try {
-      const user = await signup(email, password, userData);
-      console.log('User signed up:', user);
+      setLoading(true);
+      await signup(email, password, userData);
+      navigate('/');
     } catch (error) {
       setError('Signup failed. Please try again.');
+    } finally {
+      setLoading(false);
     }
   };
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center h-screen bg-gray-100">
+        <span className="text-lg text-gray-700">Loading...</span>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen grid grid-cols-1 md:grid-cols-3 bg-cover bg-center" style={{ backgroundImage: `url('/assets/test2.jpg')` }}>

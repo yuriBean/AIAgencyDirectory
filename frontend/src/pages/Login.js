@@ -9,14 +9,18 @@ const Login = () => {
   const [error, setError] = useState('');
   const [showForgotPassword, setShowForgotPassword] = useState(false);
   const navigate = useNavigate();
+  const[loading, setLoading] = useState(false);
 
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
+      setLoading(true);
       await login(email, password);
       navigate('/');
     } catch (error) {
       setError(error.message);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -29,6 +33,14 @@ const Login = () => {
       setError(error.message);
     }
   };
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center h-screen bg-gray-100">
+        <span className="text-lg text-gray-700">Loading...</span>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen grid grid-cols-1 md:grid-cols-3 bg-cover bg-center" style={{ backgroundImage: `url('/assets/test2.jpg')` }}>
