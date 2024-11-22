@@ -1,6 +1,6 @@
 import { auth } from '../firebase';
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, getAuth, sendPasswordResetEmail } from 'firebase/auth';
-import { addUserToFirestore } from './firestoreService';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, sendEmailVerification, sendPasswordResetEmail } from 'firebase/auth';
+import { addUserToFirestore, verifyUser } from './firestoreService';
 
 const signup = async (email, password, additionalData) => {
   try {
@@ -9,6 +9,7 @@ const signup = async (email, password, additionalData) => {
 
     await addUserToFirestore(user.uid, { email: user.email, ...additionalData });
 
+    await sendEmailVerification(user);
     return user;
   } catch (error) {
     throw error;
@@ -42,4 +43,24 @@ export const forgotPassword = async (email) => {
   }
 };
 
-export { signup, login, logout };
+const checkEmailVerification = async () => {
+  try {
+    const user = auth.currentUser;
+    if (user) {
+      await user.reload(); 
+      if (user.emailVerified) {
+        console.log("User's email is verified.");
+        await verifyUser(user.uid); 
+      } else {
+        console.log("User's email is not verified yet.");
+      }
+    } else {
+      console.error("No authenticated user found.");
+    }
+  } catch (error) {
+    console.error("Error during email verification check:", error.message);
+    throw new Error("Failed to check email verification. Please try again.");
+  }
+};
+
+export { signup, login, logout, checkEmailVerification };

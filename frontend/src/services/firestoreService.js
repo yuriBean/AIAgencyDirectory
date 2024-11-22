@@ -255,5 +255,18 @@ export const addConsultation = async (consultationdData) => {
   }
 };
 
+export const verifyUser = async (userId) => {
+  try {
+    const userRef = doc(db, 'users', userId);
+    await updateDoc(userRef, { isVerified: true });
+    console.log("User verified in Firestore:", userId);
+  } catch (error) {
+    console.error("Error verifying user in Firestore:", error.message);
+    throw new Error("Failed to update verification status. Please try again.");
+  }
+};
+
+
+
 
 export { addCaseStudy, addPricing, addTestimonial, getAgency, addUserToFirestore, addAgencyToFirestore, getTestimonials, getServices, getIndustries, getLatestNews, getAgencies, uploadLogo, saveNewsletterEmail };
