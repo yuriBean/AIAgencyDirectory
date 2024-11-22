@@ -24,12 +24,12 @@ const LatestNews = () => {
 
   const slugify = (text) => {
     return text
-      .toString()                          // Convert to string
-      .toLowerCase()                       // Convert to lowercase
-      .trim()                              // Remove whitespace from both ends
-      .replace(/\s+/g, '-')                // Replace spaces with -
-      .replace(/[^\w\-]+/g, '')            // Remove all non-word chars
-      .replace(/\-\-+/g, '-');             // Replace multiple dashes with single dash
+      .toString()                          
+      .toLowerCase()                       
+      .trim()                              
+      .replace(/\s+/g, '-')                
+      .replace(/[^\w\-]+/g, '')            
+      .replace(/\-\-+/g, '-');             
   };  
 
   return (
@@ -42,13 +42,11 @@ const LatestNews = () => {
             key={index}
             className="bg-white shadow-lg rounded-lg p-4 sm:p-6 flex flex-col gap-3"
           >
-            {/* <div className='py-[40%] sm:py-[20%] bg-gray-200 flex items-center justify-center'> */}
               <img
                 src={article.featuredImage}
                 alt={article.name}
                 className="object-cover"
               />
-            {/* </div> */}
             <div className="flex flex-col justify-between items-start text-left mt-2 mb-4">
             <span className="text-primary text-base text-md font-medium">{formatDate(article.dateCreated)}</span>
             <h2 className="text-xl sm:text-3xl font-bold text-left text-secondary">{article.title}</h2>

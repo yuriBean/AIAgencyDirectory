@@ -39,14 +39,13 @@ const SingleAgencyPage = () => {
   });
 
   useEffect(() => {
-    console.log(agencyId);
 
     const fetchAgency = async () => {
       try {
         const agencyData = await getAgency(agencyId);
         setAgency({
           ...agencyData,
-        services: agencyData.services || [], // Fallback to empty array if undefined
+        services: agencyData.services || [], 
         caseStudies: agencyData.caseStudies || [],
         testimonials: agencyData.testimonials || [],
         pricings: agencyData.pricings || [],
@@ -253,6 +252,7 @@ const handleEdit = (agencyId) => {
         <Pricing pricings={agency.pricings} />
       </div>
 
+{currentUser.uid === agency.userId && (
       <div className='my-10 flex flex-col md:flex-row gap-5'>
         <button
           onClick={() => {
@@ -285,7 +285,7 @@ const handleEdit = (agencyId) => {
           Add Pricing
         </button>
 
-      </div>
+      </div>)}
 
       {/* Case Study Form */}
       {showCaseStudyForm && (

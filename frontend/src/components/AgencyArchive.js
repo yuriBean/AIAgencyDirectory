@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { getAgencies } from '../services/firestoreService';
 import PageHead from './Common/PageHead';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch, faChevronDown, faUserShield, faClipboardList, faUsers, faGlobe } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faChevronDown, faUserShield, faClipboardList, faUsers, faGlobe, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import Top from './Common/Top'
 import NewsletterSignup from '../utils/NewsletterSignup';
 
@@ -43,6 +43,12 @@ const AgencyArchive = () => {
     'CRM',
     'Data Labeling',
   ];
+
+  const [activeIndex, setActiveIndex] = useState(null);
+
+  const toggleAnswer = (index) => {
+    setActiveIndex(activeIndex === index ? null : index); 
+  };
 
   useEffect(() => {
     const fetchAgencies = async () => {
@@ -312,11 +318,12 @@ const AgencyArchive = () => {
               <img
                 src={agency.logo || '/placeholder.jpg'}
                 alt={agency.name}
-                className="bg-gray-300 w-full md:w-48 rounded-full object-cover mb-4 md:mb-0"
-              />
+                className="bg-gray-300 w-full h-auto rounded-full object-cover mb-4 md:mb-0 mx-auto"
+                />
             </Link>
             <div className='flex flex-col justify-between space-y-4'>
-              <h2 className="text-xl md:text-2xl font-bold text-gray-900">{agency.name}</h2>
+            <Link to={`/agency/${agency.id}`}>
+              <h2 className="text-xl md:text-2xl font-bold text-gray-900">{agency.name}</h2> </Link>
               <div>
                 <p className="text-gray-600"><span className='font-bold'>Industry:</span> {agency.industry}</p>
                 <p className="text-gray-600"><span className='font-bold'>Rating:</span> {agency.rating}</p>
@@ -377,56 +384,82 @@ const AgencyArchive = () => {
       </div>
     </div>
 
-    <div className='bg-gray-100 py-16'>
-      <div className='container mx-auto px-6'>
-        <h2 className='text-4xl font-bold text-center mb-10 text-primary'>Frequently Asked Questions (FAQs)</h2>
+    <div className="bg-gray-100 py-16">
+      <div className="container mx-auto px-6">
+        <h2 className="text-4xl font-bold text-center mb-10 text-primary">Frequently Asked Questions (FAQs)</h2>
 
-        <div className='space-y-6'>
+        <div className="space-y-6">
           {/* Question 1 */}
-          <div className='bg-white shadow-md p-6 rounded-lg'>
-            <div className='flex justify-between items-center cursor-pointer'>
-              <h3 className='text-lg font-semibold text-secondary'>How do I find the right AI agency for my business?</h3>
-              <FontAwesomeIcon icon={faChevronDown} className='text-primary' />
+          <div className="bg-white shadow-md p-6 rounded-lg">
+            <div className="flex justify-between items-center cursor-pointer" onClick={() => toggleAnswer(0)}>
+              <h3 className="text-lg font-semibold text-secondary">How do I find the right AI agency for my business?</h3>
+              <FontAwesomeIcon icon={activeIndex === 0 ? faChevronUp : faChevronDown} className="text-primary" />
             </div>
-            <p className='mt-4 text-gray-600'>
-              Use our search and filter options to narrow down your choices based on location, services, industry specialization, and ratings.
-            </p>
+            <div
+              className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                activeIndex === 0 ? 'max-h-screen' : 'max-h-0'
+              }`}
+            >
+              <p className="mt-4 text-gray-600">
+                Use our search and filter options to narrow down your choices based on location, services, industry specialization, and ratings.
+              </p>
+            </div>
           </div>
 
           {/* Question 2 */}
-          <div className='bg-white shadow-md p-6 rounded-lg'>
-            <div className='flex justify-between items-center cursor-pointer'>
-              <h3 className='text-lg font-semibold text-secondary'>How are the agencies verified?</h3>
-              <FontAwesomeIcon icon={faChevronDown} className='text-primary' />
+          <div className="bg-white shadow-md p-6 rounded-lg">
+            <div className="flex justify-between items-center cursor-pointer" onClick={() => toggleAnswer(1)}>
+              <h3 className="text-lg font-semibold text-secondary">How are the agencies verified?</h3>
+              <FontAwesomeIcon icon={activeIndex === 1 ? faChevronUp : faChevronDown} className="text-primary" />
             </div>
-            <p className='mt-4 text-gray-600'>
-              All agencies undergo a thorough vetting process to ensure they meet our quality standards.
-            </p>
+            <div
+              className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                activeIndex === 1 ? 'max-h-screen' : 'max-h-0'
+              }`}
+            >
+              <p className="mt-4 text-gray-600">
+                All agencies undergo a thorough vetting process to ensure they meet our quality standards.
+              </p>
+            </div>
           </div>
 
-          <div className='bg-white shadow-md p-6 rounded-lg'>
-            <div className='flex justify-between items-center cursor-pointer'>
-              <h3 className='text-lg font-semibold text-secondary'>What services do AI agencies typically offer?</h3>
-              <FontAwesomeIcon icon={faChevronDown} className='text-primary' />
+          {/* Question 3 */}
+          <div className="bg-white shadow-md p-6 rounded-lg">
+            <div className="flex justify-between items-center cursor-pointer" onClick={() => toggleAnswer(2)}>
+              <h3 className="text-lg font-semibold text-secondary">What services do AI agencies typically offer?</h3>
+              <FontAwesomeIcon icon={activeIndex === 2 ? faChevronUp : faChevronDown} className="text-primary" />
             </div>
-            <p className='mt-4 text-gray-600'>
-            AI agencies often provide services such as Workflow Automation, Data Labeling, Chatbots, and AI strategy consulting.
-            </p>
+            <div
+              className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                activeIndex === 2 ? 'max-h-screen' : 'max-h-0'
+              }`}
+            >
+              <p className="mt-4 text-gray-600">
+                AI agencies often provide services such as Workflow Automation, Data Labeling, Chatbots, and AI strategy consulting.
+              </p>
+            </div>
           </div>
 
-          <div className='bg-white shadow-md p-6 rounded-lg'>
-            <div className='flex justify-between items-center cursor-pointer'>
-              <h3 className='text-lg font-semibold text-secondary'>What is an AI agency?</h3>
-              <FontAwesomeIcon icon={faChevronDown} className='text-primary' />
+          {/* Question 4 */}
+          <div className="bg-white shadow-md p-6 rounded-lg">
+            <div className="flex justify-between items-center cursor-pointer" onClick={() => toggleAnswer(3)}>
+              <h3 className="text-lg font-semibold text-secondary">What is an AI agency?</h3>
+              <FontAwesomeIcon icon={activeIndex === 3 ? faChevronUp : faChevronDown} className="text-primary" />
             </div>
-            <p className='mt-4 text-gray-600'>
-            An AI agency is a company that provides artificial intelligence solutions, services, or consultancy to help businesses automate processes, analyze data, or implement AI-driven technologies. They often specialize in machine learning, natural language processing, and AI-powered automation.
-            </p>
+            <div
+              className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                activeIndex === 3 ? 'max-h-screen' : 'max-h-0'
+              }`}
+            >
+              <p className="mt-4 text-gray-600">
+                An AI agency is a company that provides artificial intelligence solutions, services, or consultancy to help businesses automate processes, analyze data, or implement AI-driven technologies. They often specialize in machine learning, natural language processing, and AI-powered automation.
+              </p>
+            </div>
           </div>
-
         </div>
       </div>
     </div>
+
 
 
     </>

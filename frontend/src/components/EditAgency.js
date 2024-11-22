@@ -38,7 +38,10 @@ const EditAgency = () => {
       try {
         const agencyData = await getAgency(agencyId);
         setAgency(agencyData);
-        console.log('services', agencyData.services);
+
+        if (agencyData.userId !== currentUser.uid) {
+          navigate(`/agency/${agencyId}`); 
+        } else {
         setFormData({
           name: agencyData.name || '',
           description: agencyData.description || '',
@@ -49,12 +52,12 @@ const EditAgency = () => {
           isApproved: agencyData.isApproved || false,
           logo: agencyData.logo || '',
           rating: agencyData.rating || 0,
-          services: agencyData.services.join(', '), // Combine services into a single string
+          services: agencyData.services.join(', '), 
           pricings: agencyData.pricings || [],
           caseStudies: agencyData.caseStudies || [],
           testimonials: agencyData.testimonials || [],
         });
-        setLogoName(agencyData.logo ? agencyData.logo.split('/').pop() : '');
+        setLogoName(agencyData.logo ? agencyData.logo.split('/').pop() : '');}
       } catch (err) {
         setError('Failed to load agency data');
       } finally {
@@ -63,7 +66,7 @@ const EditAgency = () => {
     };
 
     fetchAgency();
-  }, [agencyId]);
+  }, [agencyId, currentUser.uid, navigate]);
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;

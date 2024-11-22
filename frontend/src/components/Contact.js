@@ -28,6 +28,7 @@ const ContactUs = () => {
     try {
       await addContactSubmission({
         ...formData,
+        userId: currentUser.uid,
         timestamp: new Date(),
       });
       await addContactNotification(currentUser.uid);

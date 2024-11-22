@@ -14,7 +14,13 @@ const TopRatedAgencies = () => {
     fetchAgencies();
   }, []);
 
-
+  const truncateText = (text, limit) => {
+    if (!text) return "";
+    const words = text.split(" ");
+    return words.length > limit
+      ? words.slice(0, limit).join(" ") + "..."
+      : text;
+  };
 
   return (
     <div className="max-w-7xl mx-auto p-4 sm:p-6">
@@ -48,7 +54,7 @@ const TopRatedAgencies = () => {
               )
               )}
             </div>
-            <p className="text-gray-600 mb-4 text-sm sm:text-base">{agency.description}</p>
+            <p className="text-gray-600 mb-4 text-sm sm:text-base">{truncateText(agency.description, 30)}</p>
             <div>
             <Link to={`/agency/${agency.id}`}>
               <button className="mt-auto border border-primary text-primary py-2 px-4 sm:px-5 rounded-full hover:bg-primary hover:text-white">

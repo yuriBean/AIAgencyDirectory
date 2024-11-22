@@ -73,9 +73,11 @@ const Company = () => {
   <p className='w-full md:w-2/3 text-center'>
   Meet the dedicated professionals behind AI Agency Directory who are passionate about helping businesses succeed in the AI landscape. From AI experts to customer support specialists, our team is here to support you every step of the way.
   </p>
+  <a href='/contact'>
   <button className='bg-primary text-white text-lg p-4 px-16 hover:bg-blue-600 rounded-full'>
     Contact Us
   </button>
+  </a>
 </div>
     </div>
   )

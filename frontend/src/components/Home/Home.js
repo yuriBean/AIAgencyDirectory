@@ -4,14 +4,8 @@ import TopRatedAgencies from '../Common/Top'
 import LatestNews from '../Common/Latest'
 import Consultation from './Consultation'
 import Clients from './Clients'
-import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
-  const navigate = useNavigate();
-
-  const handleAgencies = () => {
-    navigate('/agencies');
-  }
 
   return (
     <div className='grow'>
@@ -24,9 +18,11 @@ const Home = () => {
             Discover the leading AI consulting firms trusted by businesses worldwide.
           </p>
         </div>
-        <button onClick={handleAgencies} className='bg-primary my-2 py-2 px-8 sm:py-3 sm:px-11 rounded-full text-white text-base hover:bg-blue-600 sm:text-xl'>
+        <a href='/agencies'>
+        <button className='bg-primary my-2 py-2 px-8 sm:py-3 sm:px-11 rounded-full text-white text-base hover:bg-blue-600 sm:text-xl'>
           See All Agencies
         </button>
+      </a>
       </div>
       </div>
       <TopRatedAgencies />
@@ -38,9 +34,11 @@ const Home = () => {
           Stay informed with the latest trends, insights, and developments in AI
           </p>
         </div>
+        <a href='/blogs'>
         <button className='bg-primary py-2 px-8 sm:py-3 sm:px-11 rounded-full text-white hover:bg-blue-600 text-base sm:text-xl'>
+          
           View All Articles
-        </button>
+        </button></a>
       </div></div>
       <LatestNews />
       <Consultation />

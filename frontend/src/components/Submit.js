@@ -208,7 +208,7 @@ const Submit = () => {
             <label className='font-bold text-lg'>Services Offered:</label>
             <div className='grid grid-cols-1 md:grid-cols-1 gap-4'>
               {[
-                'Workflow Automation, and Optimization',
+                'Workflow Automation and Optimization',
                 'Custom App Development',
                 'Content Creation and Management',
                 'Chatbots',

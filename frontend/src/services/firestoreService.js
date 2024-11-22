@@ -158,6 +158,15 @@ export const addContactNotification = async (userId) => {
   });
 };
 
+export const addConsultationNotification = async (userId) => {
+  const message = `A new consultation form was submitted.`;
+  await addDoc(collection(db, 'notifications'), {
+    userId,
+    message,
+    timestamp: new Date(),
+  });
+};
+
 export const updateUserSubscription = async (userId, subscriptionPlan) => {
   try {
     const userRef = doc(db, 'users', userId);
@@ -184,19 +193,28 @@ export const fetchUserAgencies = async (userId) => {
 
 export const updateUsername = async (userId, newUsername) => {
   try {
-    const userRef = doc(db, 'users', userId);
+    const userRef = doc(db, 'users', userId);  
     await updateDoc(userRef, {
       username: newUsername,
     });
-    console.log('User subscription updated successfully');
+    console.log('Username updated successfully');
   } catch (error) {
-    console.error('Error updating subscription: ', error);
+    console.error('Error updating username: ', error);
+    throw new Error('Failed to update username');
   }
 };
 
+
 export const updatePassword = async (user, newPassword) => {
-  await user.updatePassword(newPassword);
+  try {
+    await user.updatePassword(newPassword);  
+    console.log('Password updated successfully');
+  } catch (error) {
+    console.error('Error updating password: ', error);
+    throw new Error('Failed to update password');
+  }
 };
+
 
 export const editAgency = async (agencyId, agencyData) => {
   const agencyRef = doc(db, 'agencies', agencyId);
@@ -222,6 +240,15 @@ export const getUserSubscriptionStatus = async (userId) => {
 export const addContactSubmission = async (contactData) => {
   try {
     const contactRef = await addDoc(collection(db, 'contacts'), contactData);
+    return contactRef.id; 
+  } catch (error) {
+    throw error; 
+  }
+};
+
+export const addConsultation = async (consultationdData) => {
+  try {
+    const contactRef = await addDoc(collection(db, 'consultations'), consultationdData);
     return contactRef.id; 
   } catch (error) {
     throw error; 
