@@ -4,7 +4,7 @@ import { faUpload, faTimes, faImage } from '@fortawesome/free-solid-svg-icons';
 import { addArticle } from '../../services/firestoreService';
 import { uploadImage } from '../../utils/uploadImage';
 import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css'; // Import styles for the editor
+import 'react-quill/dist/quill.snow.css'; 
 import PageHead from '../../components/common/PageHead';
 
 const AddArticle = () => {

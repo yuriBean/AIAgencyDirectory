@@ -1,4 +1,4 @@
-import PageHead from './Common/PageHead';
+import PageHead from '../components/Common/PageHead';
 import React, { useState } from 'react';
 import Latest from './Common/Latest'
 import { useAuth } from '../context/AuthContext';
@@ -47,7 +47,6 @@ const Newsletter = () => {
     <>
     <PageHead pagename='Newsletter' />
     <div className="max-w-7xl mt-10 mx-auto p-4 sm:p-6 flex flex-col justify-center items-center space-y-16">
-      {/* Title Section */}
       <div className="flex flex-col sm:flex-row justify-between items-center text-center sm:items-center">
         <div className='my-6 md:my-9 sm:mb-0'>
           <h1 className="text-4xl font-bold text-secondary">Stay Ahead
@@ -59,7 +58,6 @@ const Newsletter = () => {
         </div>
       </div>
 
-      {/* Agency Cards */}
       <Latest /> 
       <a href='/blogs'>
       <button className='bg-primary py-2 px-8 sm:py-3 sm:px-11 rounded-full text-white hover:bg-blue-600 sm:text-xl'>

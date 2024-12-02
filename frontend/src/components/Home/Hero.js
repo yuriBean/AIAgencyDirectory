@@ -10,7 +10,7 @@ const Hero = () => {
   const [dropdown2, setDropdown2] = useState('');
   const [services, setServices] = useState([]);
   const [industries, setIndustries] = useState([]);
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -68,7 +68,6 @@ const Hero = () => {
             Search
           </button>
         </div>
-        {/* Dropdowns for Services and Industries */}
         <div className="mb-6 rounded-full w-full justify-between shadow-lg md:flex md:justify-between md:items-center max-w-4xl">
           <select
             value={dropdown1}

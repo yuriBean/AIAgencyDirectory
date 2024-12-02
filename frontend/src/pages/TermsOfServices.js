@@ -1,5 +1,5 @@
 import React from 'react'
-import PageHead from './Common/PageHead'
+import PageHead from '../components/Common/PageHead'
 
 const TermsOfServices = () => {
   return (

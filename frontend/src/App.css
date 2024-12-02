@@ -3,19 +3,17 @@
 
 }
 
-
-/* styles.css */
 .article-content a {
-  color: blue; /* Link color */
-  text-decoration: underline; /* Underline links */
+  color: blue; 
+  text-decoration: underline; 
 }
 
 .article-content h2,h3,h4 {
-  font-size: 3rem; /* Heading size */
-  margin: 1rem 0; /* Margin for headings */
+  font-size: 3rem; 
+  margin: 1rem 0; 
 }
 
 .article-content p {
-  font-size: 1rem; /* Paragraph size */
-  line-height: 1.5; /* Line height for readability */
+  font-size: 1rem; 
+  line-height: 1.5; 
 }

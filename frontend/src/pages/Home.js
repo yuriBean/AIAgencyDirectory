@@ -1,9 +1,9 @@
 import React from 'react'
-import Hero from './Hero'
-import TopRatedAgencies from '../Common/Top'
-import LatestNews from '../Common/Latest'
-import Consultation from './Consultation'
-import Clients from './Clients'
+import Hero from '../components/Home/Hero'
+import TopRatedAgencies from '../components/Common/Top'
+import LatestNews from '../components/Common/Latest'
+import Consultation from '../components/Home/Consultation'
+import Clients from '../components/Home/Clients'
 
 const Home = () => {
 

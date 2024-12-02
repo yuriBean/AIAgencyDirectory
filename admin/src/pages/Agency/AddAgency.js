@@ -9,7 +9,6 @@ const AddAgency = () => {
   
     const [formData, setFormData] = useState({
       agencyName: '',
-    //   userId: currentUser.uid,
       logo: null,
       description: '',
       services: [],
@@ -73,7 +72,6 @@ const AddAgency = () => {
   
       const agencyData = {
         name: formData.agencyName,
-        // userId: formData.userId,
         logo: logoUrl,
         description: formData.description,
         services: servicesArray,

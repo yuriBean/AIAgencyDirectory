@@ -47,7 +47,7 @@ const Payments = () => {
       }
       const response = await axios ({
         method: 'post',
-        url: 'http://localhost:5000/create-subscription',
+        url: 'http://api.aiagencydirectory.com/create-subscription',
         data: {
           plan_name: pkg,
           duration: duration

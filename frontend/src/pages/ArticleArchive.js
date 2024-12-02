@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { getLatestNews } from '../services/firestoreService';
-import PageHead from './Common/PageHead';
+import PageHead from '../components/Common/PageHead';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import LatestNews from './Common/Latest';
+import LatestNews from '../components/Common/Latest';
 import NewsletterSignup from '../utils/NewsletterSignup';
 import { Link } from 'react-router-dom';
 
@@ -66,7 +66,6 @@ const ArticleArchive = () => {
     filterArticles();
   }, [searchTerm, searchOption, articles, sortBy, ratingFilter, tagFilter]);
 
-  // Pagination logic
   const totalPages = Math.ceil(filteredArticles.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
   const paginatedArticles = filteredArticles.slice(
@@ -165,7 +164,6 @@ const ArticleArchive = () => {
             />
           </div>
 
-          {/* Sort and Filter Section */}
           <div className="my-4 flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 items-start md:items-center">
             <label className="font-bold text-lg text-primary">Sort by:</label>
             <select
@@ -180,7 +178,6 @@ const ArticleArchive = () => {
           </div>
         </div>
 
-        {/* Tag Cloud */}
         <>
           <h3 className="text-primary text-xl font-bold mb-4">Popular Categories</h3>
           <div className="flex flex-wrap gap-2 mb-12">
@@ -199,7 +196,6 @@ const ArticleArchive = () => {
             )}
           </div>
 
-        {/* Clear Tag Filter */}
         
         {tagFilter && (
           <div className="mb-6">
@@ -213,7 +209,6 @@ const ArticleArchive = () => {
         )}
         </>
 
-        {/* Agency List */}
         <ul className="space-y-6 md:space-y-8">
   {paginatedArticles.map((article) => (
     <li
@@ -255,7 +250,6 @@ const ArticleArchive = () => {
   ))}
 </ul>
 
-        {/* Pagination Controls */}
         <div className="flex justify-center items-center mt-6 space-x-9">
           <button
             onClick={handlePrevPage}
@@ -281,8 +275,6 @@ const ArticleArchive = () => {
           <h1 className="text-4xl font-bold text-secondary">Recommended Blogs</h1>
         </div>
         <LatestNews />
-
-
     </>
   );
 };

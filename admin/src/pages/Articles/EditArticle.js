@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { getArticle, updateArticle } from '../../services/firestoreService';
 import { uploadImage } from '../../utils/uploadImage';
 import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css'; // Import the styles for React Quill
+import 'react-quill/dist/quill.snow.css'; 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUpload, faTimes, faImage } from '@fortawesome/free-solid-svg-icons';
 import PageHead from '../../components/common/PageHead';
@@ -34,7 +34,7 @@ const EditArticle = () => {
         category: article.category,
         featuredImage: article.featuredImage,
       });
-      setImageName(article.featuredImage || ''); // Set the image name if available
+      setImageName(article.featuredImage || ''); 
     };
 
     fetchArticle();

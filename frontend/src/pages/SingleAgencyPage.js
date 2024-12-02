@@ -161,14 +161,12 @@ const handleEdit = (agencyId) => {
   return (
     <div className="container break-words mx-auto w-full my-12 p-6 shadow-md rounded-lg bg-white overflow-hidden">
       <div className="flex w-full flex-col md:flex-row items-start md:items-center space-y-6 space-x-0 md:space-x-9">
-        {/* Agency Logo */}
         <img
                   src={agency.logo || '/placeholder.jpg'}
                   alt={agency.name}
           className="w-72 h-72 object-cover rounded-lg"
         />
 
-        {/* Agency Details */}
         <div className="flex flex-col space-y-4 m-2">
         <div className="flex justify-between items-center">
         <h1 className="text-4xl font-bold text-primary">{agency.name}</h1>
@@ -230,7 +228,6 @@ const handleEdit = (agencyId) => {
         </div>
       </div>
 
-      {/* Agency Services */}
       <div className="mt-8 flex-col space-y-5">
       {agency.services.length > 0 && (
         <>
@@ -287,7 +284,6 @@ const handleEdit = (agencyId) => {
 
       </div>)}
 
-      {/* Case Study Form */}
       {showCaseStudyForm && (
         <div className="my-6 bg-gray-300 p-5 rounded-lg">
           <h3 className="text-xl font-semibold my-2">Add Case Study</h3>
@@ -363,7 +359,6 @@ const handleEdit = (agencyId) => {
         </div>
       )}
 
-      {/* Testimonial Form */}
       {showTestimonialForm && (
         <div className="my-6 bg-gray-300 p-5 rounded-lg">
           <h3 className="text-xl my-2 font-semibold">Add Testimonial</h3>

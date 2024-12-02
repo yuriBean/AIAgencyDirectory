@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getAgencies } from '../services/firestoreService';
-import PageHead from './Common/PageHead';
+import PageHead from '../components/Common/PageHead';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faChevronDown, faUserShield, faClipboardList, faUsers, faGlobe, faChevronUp } from '@fortawesome/free-solid-svg-icons';
-import Top from './Common/Top'
+import Top from '../components/Common/Top'
 import NewsletterSignup from '../utils/NewsletterSignup';
 
 const AgencyArchive = () => {
@@ -87,12 +87,10 @@ const AgencyArchive = () => {
         });
       }
 
-      // Filter by selected industries
       if (selectedIndustries.length > 0) {
         filtered = filtered.filter(agency => selectedIndustries.includes(agency.industry));
       }
 
-      // Filter by selected services
       if (selectedServices.length > 0) {
         filtered = filtered.filter(agency =>
           agency.services.some(service => selectedServices.includes(service))
@@ -217,7 +215,6 @@ const AgencyArchive = () => {
             <FontAwesomeIcon icon={faSearch} className='text-xl text-primary hidden sm:block'/>
           </div>
 
-          {/* Sort and Filter Section */}
           <div className="my-4 flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 items-start md:items-center">
             <label className='font-bold text-lg text-primary'>Sort by:</label>
             <select
@@ -229,9 +226,6 @@ const AgencyArchive = () => {
                 <option value="oldest">Oldest</option>
             </select>
 
-            
-
-            {/* Rating Filter */}
             <label className='font-bold text-lg text-primary ml-0 md:ml-8'>Filter:</label>
             <select
               value={ratingFilter}
@@ -268,7 +262,6 @@ const AgencyArchive = () => {
           )}
       </div>
 
-            {/* Services Filter */}
         <div className="relative inline-block">
           <button 
             onClick={() => {setShowServicesDropdown(!showServicesDropdown); setShowIndustriesDropdown(false);}} 
@@ -295,8 +288,6 @@ const AgencyArchive = () => {
       </div>
 
         </div>      
-
-        {/* Agency List */}
         <ul className="space-y-6 md:space-y-8 min-h-[400px]">
         {paginatedAgencies
   .filter(agency => agency.isApproved) 
@@ -344,7 +335,6 @@ const AgencyArchive = () => {
   )}
 
 </ul>
-        {/* Pagination Controls */}
         <div className="flex justify-center items-center mt-6 space-x-9">
           <button
             onClick={handlePrevPage}
@@ -369,7 +359,6 @@ const AgencyArchive = () => {
         <h2 className="text-4xl font-bold text-primary mb-12">Why Choose Our AI Agency Directory?</h2>
         <p className="text-xl text-gray-700 mb-16">We provide a curated list of top AI agencies, verified reviews, and detailed profiles to help you find the perfect AI partner.</p>
         
-        {/* Benefits Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 font-semibold">
           {benefits.map((benefit, index) => (
             <div key={index} className="p-8 rounded-lg shadow-lg shadow-secondary flex flex-col items-center space-y-2">
@@ -389,7 +378,6 @@ const AgencyArchive = () => {
         <h2 className="text-4xl font-bold text-center mb-10 text-primary">Frequently Asked Questions (FAQs)</h2>
 
         <div className="space-y-6">
-          {/* Question 1 */}
           <div className="bg-white shadow-md p-6 rounded-lg">
             <div className="flex justify-between items-center cursor-pointer" onClick={() => toggleAnswer(0)}>
               <h3 className="text-lg font-semibold text-secondary">How do I find the right AI agency for my business?</h3>
@@ -406,7 +394,6 @@ const AgencyArchive = () => {
             </div>
           </div>
 
-          {/* Question 2 */}
           <div className="bg-white shadow-md p-6 rounded-lg">
             <div className="flex justify-between items-center cursor-pointer" onClick={() => toggleAnswer(1)}>
               <h3 className="text-lg font-semibold text-secondary">How are the agencies verified?</h3>
@@ -423,7 +410,6 @@ const AgencyArchive = () => {
             </div>
           </div>
 
-          {/* Question 3 */}
           <div className="bg-white shadow-md p-6 rounded-lg">
             <div className="flex justify-between items-center cursor-pointer" onClick={() => toggleAnswer(2)}>
               <h3 className="text-lg font-semibold text-secondary">What services do AI agencies typically offer?</h3>
@@ -440,7 +426,6 @@ const AgencyArchive = () => {
             </div>
           </div>
 
-          {/* Question 4 */}
           <div className="bg-white shadow-md p-6 rounded-lg">
             <div className="flex justify-between items-center cursor-pointer" onClick={() => toggleAnswer(3)}>
               <h3 className="text-lg font-semibold text-secondary">What is an AI agency?</h3>
@@ -459,8 +444,6 @@ const AgencyArchive = () => {
         </div>
       </div>
     </div>
-
-
 
     </>
   );

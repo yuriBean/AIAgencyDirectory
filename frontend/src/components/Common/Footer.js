@@ -13,7 +13,6 @@ const Footer = () => {
   return (
     <section className="p-12 bg-primary text-white">
       <div className="container mx-auto mb-16 flex flex-col md:flex-row justify-between items-start space-y-8 md:space-y-0">
-        {/* First Column: Logo and Text */}
         <div className="flex flex-col items-center md:items-start">
         <a href='/'>
           <img src="/logo2.png" alt="Logo" className="mb-6" />
@@ -24,7 +23,6 @@ const Footer = () => {
           </p>
         </div>
 
-        {/* Second Column: Links */}
         <div className="flex flex-col space-y-8">
           <h4 className="text-2xl font-bold">Links</h4>
           <ul className="space-y-4">
@@ -35,7 +33,6 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Third Column: Legal */}
         <div className="flex flex-col space-y-8">
           <h4 className="text-2xl font-bold">Legal</h4>
           <ul className="space-y-4">
@@ -45,7 +42,6 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Fourth Column: Contact Details */}
         <div className="flex flex-col space-y-8">
           <h4 className="text-2xl font-bold">Contact Details</h4>
           <ul className="space-y-4">

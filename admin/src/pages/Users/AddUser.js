@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { addUser } from '../../services/firestoreService'; // Ensure this handles user creation
-import { sendInviteEmail } from '../../services/emailService'; // New service for sending emails
+import { addUser } from '../../services/firestoreService'; 
+import { sendInviteEmail } from '../../services/emailService'; 
 import PageHead from '../../components/common/PageHead';
 
 const generateRandomPassword = (length = 8) => {
@@ -29,13 +29,13 @@ const AddUser = () => {
     setError('');
     setSuccess('');
 
-    const password = generateRandomPassword(); // Generate a random password
+    const password = generateRandomPassword(); 
 
     try {
-      await addUser(formData.email, password, formData.name); // Add user to Firestore
-      await sendInviteEmail(formData.email, password); // Send invite email with the password
+      await addUser(formData.email, password, formData.name); 
+      await sendInviteEmail(formData.email, password); 
       setSuccess('User invited successfully!');
-      setFormData({ name: '', email: '' }); // Clear form fields
+      setFormData({ name: '', email: '' }); 
     } catch (error) {
       setError('Failed to invite user. ' + error.message);
     } finally {

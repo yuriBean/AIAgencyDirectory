@@ -1,4 +1,4 @@
-import PageHead from './Common/PageHead';
+import PageHead from '../components/Common/PageHead';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUpload, faTimes, faImage } from '@fortawesome/free-solid-svg-icons';
 import { useState, useEffect } from 'react';
@@ -22,7 +22,6 @@ const Submit = () => {
       setTimeout(() => navigate('/payments'), 2000);
     } else {
       setLoading(false);
-      
     }
   }
     fetchUser();
@@ -88,7 +87,7 @@ const Submit = () => {
       const websiteUrl = formData.website;
       console.log('Website URL to be checked:', websiteUrl);
 
-      const response = await fetch('http://localhost:5000/api/check-website', {
+      const response = await fetch('http://api.aiagencydirectory.com/check-website', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

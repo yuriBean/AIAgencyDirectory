@@ -151,7 +151,6 @@ const ViewUsers = () => {
         </tbody>
       </table>
 
-      {/* Pagination */}
       <div className="flex justify-center mt-4">
         {Array.from({ length: totalPages }, (_, index) => (
           <button

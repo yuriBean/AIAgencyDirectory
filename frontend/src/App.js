@@ -5,25 +5,25 @@ import Login from './pages/Login';
 import { AuthProvider } from './context/AuthContext';
 import PrivateRoute from './components/PrivateRoute';
 import Navbar from './components/Common/Navbar';
-import Home from './components/Home/Home';
+import Home from './pages/Home';
 import Company from './components/Company';
 import Footer from './components/Common/Footer';
 import Newsletter from './components/Newsletter';
-import Submit from './components/Submit';
-import AgencyArchive from './components/AgencyArchive';
-import ArticleArchive from './components/ArticleArchive';
-import SingleAgencyPage from './components/SingleAgencyPage';
-import ArticlePage from './components/ArticlePage';
+import Submit from './pages/Submit';
+import AgencyArchive from './pages/AgencyArchive';
+import ArticleArchive from './pages/ArticleArchive';
+import SingleAgencyPage from './pages/SingleAgencyPage';
+import ArticlePage from './pages/ArticlePage';
 import Payments from './components/Payments';
-import UserDashboard from './components/UserDashboard';
-import EditAgency from './components/EditAgency';
-import SearchResults from './components/SearchResults';
+import UserDashboard from './pages/UserDashboard';
+import EditAgency from './pages/EditAgency';
+import SearchResults from './pages/SearchResults';
 import Fail from './components/Stripe/Fail';
 import Success from './components/Stripe/Success';
-import PrivacyPolicy from './components/PrivacyPolicy';
-import TermsOfServices from './components/TermsOfServices';
-import Cookies from './components/Cookies';
-import ContactUs from './components/Contact';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsOfServices from './pages/TermsOfServices';
+import Cookies from './pages/Cookies';
+import ContactUs from './pages/Contact';
 
 function App() {
 

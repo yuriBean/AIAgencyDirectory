@@ -1,5 +1,5 @@
 import React from 'react'
-import PageHead from './Common/PageHead'
+import PageHead from '../components/Common/PageHead'
 
 const Cookies = () => {
   return (
@@ -59,7 +59,6 @@ const Cookies = () => {
 </ul>
 <p>For any other web browser, please visit your web browser's official web pages.</p>
 <h3 className='text-secondary text-lg font-bold my-1'>More Information about Cookies</h3>
-<p>You can learn more about cookies here: <a href="https://www.termsfeed.com/blog/cookies/" target="_blank">All About Cookies by TermsFeed</a>.</p>
 <h3 className='text-secondary text-lg font-bold my-1'>Contact Us</h3>
 <p>If you have any questions about this Cookies Policy, You can contact us:</p>
 <ul>

@@ -8,7 +8,7 @@ import PageHead from '../../components/common/PageHead';
 const ViewAgencies = () => {
   const [agencies, setAgencies] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
-  const [approvalStatus, setApprovalStatus] = useState(''); // Approved, Pending
+  const [approvalStatus, setApprovalStatus] = useState(''); 
   const [categoryFilter, setCategoryFilter] = useState('');
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
@@ -64,11 +64,9 @@ const ViewAgencies = () => {
 
   return (
     <>
-    {/* <NotificationsTable /> */}
     <PageHead name='Agency Management' />
     <div className="container mx-auto p-4 ">
       
-      {/* Search and Filters */}
       <div className="flex flex-col md:flex-row justify-between my-2 items-start md:items-center space-x-0 md:space-x-3 space-y-1">
         <input
           type="text"
@@ -96,7 +94,6 @@ const ViewAgencies = () => {
           <option value="Healthcare">Healthcare</option>
           <option value="Finance">Finance</option>
           <option value="Technology">Technology</option>
-          {/* Add other categories as necessary */}
         </select>
        
       </div>

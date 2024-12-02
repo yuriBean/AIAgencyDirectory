@@ -61,7 +61,6 @@ const ViewArticles = () => {
     <PageHead name='View Articles' />
     <div className="max-w-full mx-auto p-6">
 
-      {/* Search, Category, and Date Filters */}
       <div className="flex flex-col md:flex-row justify-between my-2 items-start md:items-center space-x-0 md:space-x-3 space-y-1">
         <input
           type="text"
@@ -81,7 +80,6 @@ const ViewArticles = () => {
           <option value="Tech">Tech</option>
           <option value="Health">Health</option>
           <option value="Business">Business</option>
-          {/* Add more categories as needed */}
         </select>
 
         <input

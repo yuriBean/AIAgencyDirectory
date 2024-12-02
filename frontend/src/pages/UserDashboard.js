@@ -3,7 +3,7 @@ import { useAuth } from '../context/AuthContext';
 import { fetchUserAgencies, updateUsername, updatePassword, deleteAgency } from '../services/firestoreService';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar, faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
-import PageHead from './Common/PageHead';
+import PageHead from '../components/Common/PageHead';
 import { useNavigate } from 'react-router-dom';
 
 const UserDashboard = () => {

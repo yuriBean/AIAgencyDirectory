@@ -32,7 +32,7 @@ const NotificationsTable = ({ notifications, onClear }) => {
                 <li key={notification.id} className="flex justify-between items-center px-4 py-2">
                   <div>
                   <span>{notification.message}</span>
-                  <a href={`http://localhost:3000/agency/${notification.agencyId}`} target='_blank' rel="noreferrer" className="text-blue-500 text-xs mx-1 underline">
+                  <a href={`http://aiagencydirectory.com/agency/${notification.agencyId}`} target='_blank' rel="noreferrer" className="text-blue-500 text-xs mx-1 underline">
                   <span>Click to see</span>
                   </a>
                   </div>

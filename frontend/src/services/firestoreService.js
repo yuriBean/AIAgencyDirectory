@@ -266,7 +266,4 @@ export const verifyUser = async (userId) => {
   }
 };
 
-
-
-
 export { addCaseStudy, addPricing, addTestimonial, getAgency, addUserToFirestore, addAgencyToFirestore, getTestimonials, getServices, getIndustries, getLatestNews, getAgencies, uploadLogo, saveNewsletterEmail };

@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 5000;
 sgMail.setApiKey('YOUR_SENDGRID_API_KEY'); 
 
 const corsOptions = {
-  origin: 'http://localhost:3000', 
+  origin: 'http://aiagencydirectory.com', 
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true, 
@@ -33,7 +33,7 @@ const checkWebsiteExists = async (url) => {
   }
 };
 
-app.post('/api/check-website', async (req, res) => {
+app.post('/check-website', async (req, res) => {
   const { websiteUrl } = req.body;
   console.log('Website URL to be checked:', websiteUrl);
 
@@ -74,8 +74,8 @@ app.post('/create-subscription', async (req, res) => {
       mode: 'subscription',
       payment_method_types: ["card"],
       line_items: [{ price: plan.plan_id, quantity: 1 }],
-      success_url: `http://localhost:3000/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `http://localhost:3000/fail`,
+      success_url: `http://aiagencydirectory.com/success?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `http://aiagencydirectory.com/fail`,
       customer_email: 'elizabetheden1415@gmail.com'
     });
 
@@ -103,7 +103,7 @@ app.post('/save-payment', async (req, res) => {
   }
 });
 
-app.post('/api/send-invite', async (req, res) => {
+app.post('/send-invite', async (req, res) => {
   const { email, password } = req.body;
 
   const msg = {

@@ -21,9 +21,6 @@ const Login = () => {
   return (
     <div className="min-h-screen grid grid-cols-1 md:grid-cols-3 bg-cover bg-center" style={{ backgroundImage: `url('/test4.jpg')`}}>
       
-      
-
-      {/* Login Form Section */}
       <div className="flex items-center justify-center bg-transparent">
       <div className="bg-gradient-to-r from-[#338ca0] via-white-500 to-blue-100 p-8 shadow-none md:shadow-xl w-full h-full flex flex-col justify-center max-w-sm">
       <h2 className="text-3xl font-bold mb-6 text-secondary text-center">Admin Login</h2>

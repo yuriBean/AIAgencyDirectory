@@ -4,7 +4,7 @@ import { getAgency, editAgency } from '../services/firestoreService';
 import { uploadImage } from '../utils/uploadImage';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUpload, faTimes, faImage } from '@fortawesome/free-solid-svg-icons';
-import PageHead from './Common/PageHead';
+import PageHead from '../components/Common/PageHead';
 import { useAuth } from '../context/AuthContext';
 
 const EditAgency = () => {
@@ -94,7 +94,6 @@ const EditAgency = () => {
         logoUrl = await uploadImage(formData.logo, path);
       }
 
-      // Split services string into an array
       const servicesArray = formData.services.split(',').map(service => service.trim()).filter(service => service);
 
       const agencyData = {

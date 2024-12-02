@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { addContactSubmission , addContactNotification} from "../services/firestoreService";
-import PageHead from "./Common/PageHead";
+import PageHead from "../components/Common/PageHead";
 import { useAuth } from "../context/AuthContext";
 
 const ContactUs = () => {

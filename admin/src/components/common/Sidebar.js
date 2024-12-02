@@ -126,7 +126,6 @@ const Sidebar = () => {
                     </ul>
                 </nav>
 
-                {/* Logout Button */}
                 <div className="mt-auto">
                     <button
                         onClick={handleLogout}
