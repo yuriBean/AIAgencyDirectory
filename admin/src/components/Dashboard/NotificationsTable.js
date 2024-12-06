@@ -32,9 +32,10 @@ const NotificationsTable = ({ notifications, onClear }) => {
                 <li key={notification.id} className="flex justify-between items-center px-4 py-2">
                   <div>
                   <span>{notification.message}</span>
-                  <a href={`http://aiagencydirectory.com/agency/${notification.agencyId}`} target='_blank' rel="noreferrer" className="text-blue-500 text-xs mx-1 underline">
+                  {notification.agencyId && (
+                  <a href={`https://aiagencydirectory.com/agency/${notification.agencyId}`} target='_blank' rel="noreferrer" className="text-blue-500 text-xs mx-1 underline">
                   <span>Click to see</span>
-                  </a>
+                  </a>)}
                   </div>
                   <button onClick={() => onClear(notification.id)} className="text-red-500">
                     <FontAwesomeIcon icon={faTimes} />

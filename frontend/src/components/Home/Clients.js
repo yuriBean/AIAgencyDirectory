@@ -2,41 +2,9 @@ import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import { getTestimonials } from '../../services/firestoreService'; 
 
-const customDotStyles = `
-  .slick-dots {
-    bottom: -30px; 
-    background-color:white;
-    text-decoration:none;
-  }
-  .slick-dots li {
-    width: 12px;
-    height: 12px;
-    margin: 0 14px;
-    background-color:white;
-
-  }
-  .slick-dots li button {
-    width: 12px;
-    height: 12px;
-    border: 3px solid grey; 
-    border-radius: 50%;
-    background-color: white;
-   padding: 0; 
-    
-  }
-
-  .slick-dots li button:hover{
-  
-   background-color: white;
-  }
-  .slick-dots li.slick-active button {
-    border-color: #1D2FD8;
-    background-color: #1D2FD8;
-  }
-`;
-
 const Clients = () => {
   const [testimonials, setTestimonials] = useState([]);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
     const fetchTestimonials = async () => {
@@ -44,33 +12,54 @@ const Clients = () => {
       setTestimonials(data);
     };
     fetchTestimonials();
-  }, []); 
+  }, []);
 
   const settings = {
-    dots: true,
+    dots: false, // Disable default dots
     infinite: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
+    beforeChange: (oldIndex, newIndex) => setCurrentSlide(newIndex),
   };
+
+  const renderCustomDots = () => (
+    <div className="custom-dots flex justify-center mt-4">
+      {testimonials.map((_, index) => (
+        <button
+          key={index}
+          className={`dot w-4 h-4 rounded-full mx-2 ${
+            currentSlide === index ? 'bg-[#1D2FD8] scale-125' : 'bg-gray-300'
+          }`}
+          onClick={() => sliderRef.slickGoTo(index)} 
+          aria-label={`Go to slide ${index + 1}`}
+        />
+      ))}
+    </div>
+  );
+
+  let sliderRef;
 
   return (
     <section className="p-12 flex flex-col justify-center items-center my-16">
-        <h1 className="text-4xl  text-secondary font-bold leading-normal">
+      <h1 className="text-4xl text-secondary font-bold leading-normal">
         What Our Clients Say
-        </h1>
-
-      <style>
-        {customDotStyles}
-      </style>
+      </h1>
       <div className="container max-w-4xl w-full">
-        <Slider {...settings}>
+        <Slider {...settings} ref={(slider) => (sliderRef = slider)}>
           {testimonials.map((testimonial, index) => (
-            <div key={index} className="flex flex-col items-center justify-center w-full p-6 space-y-8 bg-white rounded-md shadow-xl">
+            <div
+              key={index}
+              className="flex flex-col items-center justify-center w-full p-6 space-y-8 bg-white rounded-md shadow-xl"
+            >
               <div className="flex items-center justify-center w-full">
-                <img src='./assets/quote.png' alt={testimonial.name} className="w-20 h-20" />
+                <img
+                  src="./assets/quote.png"
+                  alt={testimonial.name}
+                  className="w-20 h-20"
+                />
               </div>
               <blockquote className="max-w-4xl text-2xl italic text-center">
                 "{testimonial.text}"
@@ -82,6 +71,7 @@ const Clients = () => {
             </div>
           ))}
         </Slider>
+        {renderCustomDots()} 
       </div>
     </section>
   );

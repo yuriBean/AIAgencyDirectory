@@ -149,10 +149,9 @@ export const addAgencyNotification = async (agencyId, userId) => {
   });
 };
 
-export const addContactNotification = async (userId) => {
+export const addContactNotification = async () => {
   const message = `A new contact form was submitted.`;
   await addDoc(collection(db, 'notifications'), {
-    userId,
     message,
     timestamp: new Date(),
   });

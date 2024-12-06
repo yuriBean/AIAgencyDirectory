@@ -170,7 +170,7 @@ const handleEdit = (agencyId) => {
         <div className="flex flex-col space-y-4 m-2">
         <div className="flex justify-between items-center">
         <h1 className="text-4xl font-bold text-primary">{agency.name}</h1>
-        {currentUser.uid === agency.userId && (
+        {currentUser && currentUser.uid === agency.userId && (
         <div className="space-x-2 ml-4 flex justify-end items-center">
             <button 
                 onClick={() => handleEdit(agencyId)} 
@@ -249,7 +249,7 @@ const handleEdit = (agencyId) => {
         <Pricing pricings={agency.pricings} />
       </div>
 
-{currentUser.uid === agency.userId && (
+{currentUser && currentUser.uid === agency.userId && (
       <div className='my-10 flex flex-col md:flex-row gap-5'>
         <button
           onClick={() => {

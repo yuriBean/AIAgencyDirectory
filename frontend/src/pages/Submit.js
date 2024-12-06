@@ -87,7 +87,7 @@ const Submit = () => {
       const websiteUrl = formData.website;
       console.log('Website URL to be checked:', websiteUrl);
 
-      const response = await fetch('http://api.aiagencydirectory.com/check-website', {
+      const response = await fetch('https://api.aiagencydirectory.com/check-website', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

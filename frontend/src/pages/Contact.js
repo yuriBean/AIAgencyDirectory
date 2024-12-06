@@ -28,13 +28,14 @@ const ContactUs = () => {
     try {
       await addContactSubmission({
         ...formData,
-        userId: currentUser.uid,
+        // userId: currentUser.uid,
         timestamp: new Date(),
       });
-      await addContactNotification(currentUser.uid);
+      await addContactNotification();
       setSubmitted(true);
     } catch (err) {
       setError("There was an error submitting the form. Please try again.");
+      console.log(err);
     } finally {
       setIsSubmitting(false);
     }

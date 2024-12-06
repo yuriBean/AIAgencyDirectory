@@ -14,7 +14,12 @@ const PORT = process.env.PORT || 5000;
 sgMail.setApiKey('YOUR_SENDGRID_API_KEY'); 
 
 const corsOptions = {
-  origin: 'http://aiagencydirectory.com', 
+  origin: [
+    'https://aiagencydirectory.com',
+    'https://admin.aiagencydirectory.com',
+    'https://www.aiagencydirectory.com',
+    'https://www.admin.aiagencydirectory.com',
+  ], 
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true, 
@@ -74,8 +79,8 @@ app.post('/create-subscription', async (req, res) => {
       mode: 'subscription',
       payment_method_types: ["card"],
       line_items: [{ price: plan.plan_id, quantity: 1 }],
-      success_url: `http://aiagencydirectory.com/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `http://aiagencydirectory.com/fail`,
+      success_url: `https://aiagencydirectory.com/success?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `https://aiagencydirectory.com/fail`,
       customer_email: 'elizabetheden1415@gmail.com'
     });
 

@@ -47,7 +47,7 @@ const Payments = () => {
       }
       const response = await axios ({
         method: 'post',
-        url: 'http://api.aiagencydirectory.com/create-subscription',
+        url: 'https://api.aiagencydirectory.com/create-subscription',
         data: {
           plan_name: pkg,
           duration: duration
@@ -76,9 +76,10 @@ const Payments = () => {
               <button 
                 onClick={handleBasicPlanSelection}
                 className="px-7 font-medium text-xl bg-primary text-white py-3 border border-2 border-transparent rounded-full hover:bg-blue-600 transition"
-                disabled={currentPlan === 'basic'}
+                disabled={currentPlan === 'basic' || currentPlan === 'premium'}
               >
-              {currentPlan === 'basic' ? 'Already Subscribed' : 'Get Started'}
+
+              {currentPlan === 'premium' ? 'Subscribed to Premium' : currentPlan === 'basic' ? 'Already Subscribed' : 'Get Started'}
               </button>
 
               <div className='space-y-4'>
@@ -101,7 +102,7 @@ const Payments = () => {
                 className="px-7 font-medium text-xl bg-primary text-white py-3 border border-2 border-transparent rounded-full hover:bg-blue-600 transition"
                 disabled={currentPlan === 'premium'}
               >
-              {currentPlan === 'premium' ? 'Already Subscribed' : 'Get Started'}
+              {currentPlan === 'premium' ? 'Already Subscribed' : currentPlan === 'basic' ? 'Upgrade to Premium' : 'Get Started'}
               </button>
 
               <div className='space-y-4'>

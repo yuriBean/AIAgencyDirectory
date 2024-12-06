@@ -63,6 +63,19 @@ const UserDashboard = () => {
         <PageHead pagename='Dashboard' />
 
         <div className="p-6 max-w-full md:max-w-7xl mx-auto">
+
+        <div className="bg-blue-100 border border-primary text-secondary px-4 py-3 rounded-lg mb-6 flex items-center justify-between">
+        <div>
+            <p className="font-semibold text-lg">Upgrade to Premium</p>
+            <p className="text-sm">Enhance your reach and unlock exclusive features.</p>
+        </div>
+        <button
+            onClick={() => navigate('/payments')}
+            className="bg-primary text-white font-semibold px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors"
+        >
+            Upgrade Now
+        </button>
+    </div>
             <div className="bg-white shadow-md rounded-lg p-6 mb-8">
                 <h2 className="text-4xl text-secondary font-bold mb-4">Your Agencies</h2>
 

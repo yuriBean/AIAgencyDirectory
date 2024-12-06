@@ -12,7 +12,7 @@ const Success = () => {
 
   const savePayment = async () => {
     try {
-      const response = await axios.post('http://api.aiagencydirectory.com/save-payment', {
+      const response = await axios.post('https://api.aiagencydirectory.com/save-payment', {
         session_id: sessionId,
       }, {
         headers: {
